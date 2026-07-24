@@ -25,4 +25,12 @@ public class EmployeeController {
         Employee savedEmployee = employeeService.save(employee);
         return employeeMapper.toResponse(savedEmployee);
     }
+
+    @GetMapping("/{id}")
+    public EmployeeResponse getEmployeeById(
+            @PathVariable Long id) {
+        Employee employee = employeeService.getEmployeeById(id);
+        return employeeMapper.toResponse(employee);
+
+    }
 }

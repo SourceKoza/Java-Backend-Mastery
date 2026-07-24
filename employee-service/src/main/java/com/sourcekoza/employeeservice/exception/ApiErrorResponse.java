@@ -3,14 +3,14 @@ import java.time.LocalDateTime;
 
 import java.util.Map;
 
-public class ErrorResponse {
+public class ApiErrorResponse {
 
     private LocalDateTime timestamp;
     private int status;
     private String message;
     private Map<String, String> errors;
 
-    public ErrorResponse() {
+    public ApiErrorResponse() {
     }
 
     public LocalDateTime getTimestamp() {
