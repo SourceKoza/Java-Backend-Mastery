@@ -1,9 +1,12 @@
 package com.sourcekoza.employeeservice.dto.request;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+
 public class CreateEmployeeRequest {
-
+    @NotBlank(message = "Employee name is required")
     private String name;
-
+    @Positive(message = "Salary must be greater than zero")
     private Double salary;
 
     public CreateEmployeeRequest() {

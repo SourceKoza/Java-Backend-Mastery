@@ -5,6 +5,7 @@ import com.sourcekoza.employeeservice.dto.response.EmployeeResponse;
 import com.sourcekoza.employeeservice.entity.Employee;
 import com.sourcekoza.employeeservice.mapper.EmployeeMapper;
 import com.sourcekoza.employeeservice.service.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,7 +20,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public EmployeeResponse save(@RequestBody CreateEmployeeRequest request) {
+    public EmployeeResponse save(@Valid @RequestBody CreateEmployeeRequest request) {
         Employee employee = employeeMapper.toEntity(request);
         Employee savedEmployee = employeeService.save(employee);
         return employeeMapper.toResponse(savedEmployee);
