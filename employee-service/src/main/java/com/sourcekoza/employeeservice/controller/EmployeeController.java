@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
-    private  final EmployeeMapper employeeMapper;
+    private final EmployeeMapper employeeMapper;
     public EmployeeController(EmployeeService employeeService,EmployeeMapper employeeMapper) {
         this.employeeService = employeeService;
         this.employeeMapper=employeeMapper;
@@ -22,7 +22,7 @@ public class EmployeeController {
     @PostMapping
     public EmployeeResponse save(@Valid @RequestBody CreateEmployeeRequest request) {
         Employee employee = employeeMapper.toEntity(request);
-        Employee savedEmployee = employeeService.save(employee);
+        Employee savedEmployee = employeeService.createEmployee(employee);
         return employeeMapper.toResponse(savedEmployee);
     }
 
